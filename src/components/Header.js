@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../../vectorstock_33649353.png";
+import Logo from "../assets/image/vectorstock_33649353.png";
 
 const Title = () => {
   return (
