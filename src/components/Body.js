@@ -33,7 +33,11 @@ const Body = () => {
   }
 
   return listOfRestaurants.length === 0 ? (
-    <Loader />
+    <div className="shimmer-container">
+      {Array.from({ length: 10 }, (_, i) => (
+        <Loader key={i} />
+      ))}
+    </div>
   ) : (
     <div className="body">
       <div className="search-container">
