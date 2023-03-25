@@ -2,9 +2,9 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div>
-      <h4>Footer</h4>
-    </div>
+    <footer>
+      <p>&copy; 2023 KitchenKorner. All Rights Reserved.</p>
+    </footer>
   );
 };
 
