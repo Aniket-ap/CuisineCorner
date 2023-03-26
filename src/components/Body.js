@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import resList from "../config";
 import Loader from "./Loader";
 import RestaurantCard from "./RestaurantCard";
@@ -61,7 +62,12 @@ const Body = () => {
       <div className="res-container">
         {filteredRestaurants.length === 0 && <h1>No Product Found</h1>}
         {filteredRestaurants.map((restaurant) => (
-          <RestaurantCard key={restaurant.data.id} resData={restaurant} />
+          <Link
+            to={`/restaurant/${restaurant.data.id}`}
+            key={restaurant.data.id}
+          >
+            <RestaurantCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>
