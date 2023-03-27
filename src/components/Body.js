@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import resList from "../config";
 import Loader from "./Loader";
 import RestaurantCard from "./RestaurantCard";
-import {filterData} from "../utils/helper"
+import { filterData } from "../utils/helper";
 import useOnline from "../utils/hooks/useOnline";
 
 const Body = () => {
@@ -29,9 +29,9 @@ const Body = () => {
     setSearchText(e.target.value);
   };
 
-  const isOnline = useOnline()
-  if(!isOnline){
-    return <h1>🔴 Offline, please check your internet connection</h1>
+  const isOnline = useOnline();
+  if (!isOnline) {
+    return <h1>🔴 Offline, please check your internet connection</h1>;
   }
 
   return listOfRestaurants.length === 0 ? (
@@ -41,17 +41,17 @@ const Body = () => {
       ))}
     </div>
   ) : (
-    <div className="body">
-      <div className="search-container">
+    <div className="flex flex-col w-auto my-5">
+      <div className="bg-white rounded-lg shadow-lg p-4">
         <input
           type="text"
-          className="search-input"
+          className="border border-gray-400 rounded-lg py-2 px-4 appearance-none leading-normal"
           placeholder="Search"
           value={searchText}
           onChange={onChangeInput}
         />
         <button
-          className="search-btn"
+          className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-lg mt-4 ml-3"
           onClick={() => {
             const data = filterData(searchText, listOfRestaurants);
             setfilteredRestaurants(data);
@@ -60,7 +60,7 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap justify-center">
         {filteredRestaurants.length === 0 && <h1>No Product Found</h1>}
         {filteredRestaurants.map((restaurant) => (
           <Link
