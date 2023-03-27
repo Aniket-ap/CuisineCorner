@@ -4,6 +4,7 @@ import resList from "../config";
 import Loader from "./Loader";
 import RestaurantCard from "./RestaurantCard";
 import {filterData} from "../utils/helper"
+import useOnline from "../utils/hooks/useOnline";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestraunt] = useState([]);
@@ -27,6 +28,11 @@ const Body = () => {
   const onChangeInput = (e) => {
     setSearchText(e.target.value);
   };
+
+  const isOnline = useOnline()
+  if(!isOnline){
+    return <h1>🔴 Offline, please check your internet connection</h1>
+  }
 
   return listOfRestaurants.length === 0 ? (
     <div className="shimmer-container">
