@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import resList from "../config";
 import Loader from "./Loader";
 import RestaurantCard from "./RestaurantCard";
+import {filterData} from "../utils/helper"
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestraunt] = useState([]);
@@ -26,12 +27,6 @@ const Body = () => {
   const onChangeInput = (e) => {
     setSearchText(e.target.value);
   };
-
-  function filterData(searchText, restaurants) {
-    return restaurants.filter((restaurant) =>
-      restaurant?.data?.name?.toLowerCase().includes(searchText.toLowerCase())
-    );
-  }
 
   return listOfRestaurants.length === 0 ? (
     <div className="shimmer-container">
