@@ -100,21 +100,3 @@
 }
 
 /* Shimmer Card CSS End */
-
-
-/* REes details start */
-/* Will update later */
-.res-details-container{
-  display: flex;
-  padding: 20px;
-}
-
-.res-details-img{
-  width: 100%;
-  height: 200px;
-}
-
-.res-menu{
-  padding: 10px;
-}
-/* REes details end */
