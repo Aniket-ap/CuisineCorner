@@ -9,6 +9,7 @@ import PageNotFound from "./components/PageNotFound";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Loader from "./components/Loader.js";
+import { UserProvider } from "./utils/context/userContext.js";
 // import Instamart from "./components/Instamart.js";
 
 // Dynamic Import
@@ -17,9 +18,11 @@ const Instamart = lazy(() => import("./components/Instamart"));
 const AppLayout = () => {
   return (
     <>
+    <UserProvider>
       <Header />
       <Outlet />
       <Footer />
+    </UserProvider>
     </>
   );
 };
