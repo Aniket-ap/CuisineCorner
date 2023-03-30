@@ -23,7 +23,7 @@ const RestaurantMenu = () => {
         {restaurantMenu &&
           restaurantMenu.map((r) => (
             <div key={r?.card?.info?.id}>
-              <RestaurantMenuCard r={r} />
+              <RestaurantMenuCard item={r} />
             </div>
           ))}
       </div>

@@ -3,6 +3,7 @@ import Logo from "../assets/image/vectorstock_33649353.png";
 import { Link } from "react-router-dom";
 import { useUser } from "../utils/context/userContext";
 // import UserContext from "../utils/context/userContext";
+import {useSelector} from "react-redux"
 
 const Title = () => {
   return (
@@ -15,6 +16,7 @@ const Title = () => {
 const Header = () => {
   // const {user} = useContext(UserContext)
   const [name, setName] = useUser()
+  const cartItems = useSelector(store => store.cart.items)
   return (
     <div className="header">
       <Title />
@@ -32,8 +34,10 @@ const Header = () => {
           <li>
             <Link to="/instamart">Instamart</Link>
           </li>
+          <li>
+            <Link to="/cart">Cart - {cartItems.length} items</Link>
+          </li>
           
-          <li>Cart</li>
           <li className="font-bold p-4 text-red-900">{name}</li>
         </ul>
       </div>
