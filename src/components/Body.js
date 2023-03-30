@@ -45,13 +45,13 @@ const Body = () => {
       <div className="bg-white rounded-lg shadow-lg p-4">
         <input
           type="text"
-          className="border border-gray-400 rounded-lg py-2 px-4 appearance-none leading-normal"
+          className="py-1 px-2 mx-2 rounded-md border border-gray-400 text-sm leading-5 focus:outline-none focus:border-orange-500"
           placeholder="Search"
           value={searchText}
           onChange={onChangeInput}
         />
         <button
-          className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-lg mt-4 ml-3"
+          className="py-1 px-3 rounded-md bg-orange-500 text-white text-sm leading-5 hover:bg-orange-600 focus:outline-none focus:bg-orange-600"
           onClick={() => {
             const data = filterData(searchText, listOfRestaurants);
             setfilteredRestaurants(data);
