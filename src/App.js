@@ -11,6 +11,8 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Loader from "./components/Loader.js";
 import { UserProvider } from "./utils/context/userContext.js";
 // import Instamart from "./components/Instamart.js";
+import { Provider } from "react-redux";
+import store from "./utils/redux/store.js";
 
 // Dynamic Import
 const Instamart = lazy(() => import("./components/Instamart"));
@@ -18,11 +20,13 @@ const Instamart = lazy(() => import("./components/Instamart"));
 const AppLayout = () => {
   return (
     <>
-    <UserProvider>
-      <Header />
-      <Outlet />
-      <Footer />
-    </UserProvider>
+      <Provider store={store}>
+        <UserProvider>
+          <Header />
+          <Outlet />
+          <Footer />
+        </UserProvider>
+      </Provider>
     </>
   );
 };
@@ -52,7 +56,7 @@ const appRouter = createBrowserRouter([
       {
         path: "/instamart",
         element: (
-          <Suspense fallback={<Loader/>}>
+          <Suspense fallback={<Loader />}>
             <Instamart />
           </Suspense>
         ),
