@@ -14,6 +14,8 @@ import { UserProvider } from "./utils/context/userContext.js";
 import { Provider } from "react-redux";
 import store from "./utils/redux/store.js";
 import Cart from "./components/Cart.js";
+import Login from "./components/auth/Login.js";
+import { AuthProvider } from "./utils/context/useAuth.js";
 
 // Dynamic Import
 const Instamart = lazy(() => import("./components/Instamart"));
@@ -22,11 +24,13 @@ const AppLayout = () => {
   return (
     <>
       <Provider store={store}>
-        <UserProvider>
-          <Header />
-          <Outlet />
-          <Footer />
-        </UserProvider>
+        <AuthProvider>
+          <UserProvider>
+            <Header />
+            <Outlet />
+            <Footer />
+          </UserProvider>
+        </AuthProvider>
       </Provider>
     </>
   );
@@ -53,6 +57,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
       {
         path: "/restaurant/:id",
