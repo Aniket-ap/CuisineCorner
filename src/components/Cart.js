@@ -23,7 +23,7 @@ const Cart = () => {
   }, 0);
 
   const removeItem = (id) => {
-    console.log(id)
+    console.log(id);
     dispatch(removeItemFromCart(id));
   };
 
@@ -89,7 +89,12 @@ const Cart = () => {
                           </div>
                         </div>
                       </div>
-                      <p onClick={() => removeItem(item.id)}>Remove</p>
+                      <p
+                        className="text-red-600 cursor-pointer font-bold"
+                        onClick={() => removeItem(item.id)}
+                      >
+                        Remove
+                      </p>
                     </li>
                   </div>
                 ))}
