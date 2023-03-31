@@ -62,6 +62,19 @@ const Cart = () => {
                 role="list"
                 className="divide-y divide-gray-200 border-t border-b border-gray-200"
               >
+                <li className="p-4 flex justify-end">
+                  {/* <p>Hotel Image</p>
+                  <p>Hotel NAme</p>
+                  <p>Hotel Location</p> */}
+                  {/* In next updated will add Hotel image . name and Location */}
+                  <button
+                    className="bg-red-500 text-white p-2 rounded"
+                    onClick={handleClearCart}
+                  >
+                    Remove All
+                  </button>
+                </li>
+
                 {Object.values(itemQuantityMap).map((item) => (
                   <div key={item.id} className="px-4">
                     <li className="flex py-6 sm:py-6 ">
