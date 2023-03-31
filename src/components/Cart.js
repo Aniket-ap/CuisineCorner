@@ -23,9 +23,12 @@ const Cart = () => {
   }, 0);
 
   const removeItem = (id) => {
-    console.log(id);
     dispatch(removeItemFromCart(id));
   };
+
+  const onClickCheckOut = () => {
+    alert("Congratulations! Your order has been successfully placed");
+  }
 
   if (items.length === 0) {
     return (
@@ -90,7 +93,7 @@ const Cart = () => {
                         <div className="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
                           <div>
                             <div className="flex justify-between">
-                              <h3 className="font-medium text-lg text-black">
+                              <h3 className="font-medium text-sm text-black sm:text-lg">
                                 {item.name} [&#x2715; {item.quantity}]
                               </h3>
                             </div>
@@ -160,7 +163,7 @@ const Cart = () => {
                   </div>
                 </dl>
                 <div className="px-6 pb-4">
-                  <button className="bg-green-400 w-full text-white p-3 font-bold">
+                  <button className="bg-green-400 w-full text-white p-3 font-bold" onClick={onClickCheckOut}>
                     Checkout
                   </button>
                 </div>
