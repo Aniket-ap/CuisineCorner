@@ -18,7 +18,7 @@ const Header = () => {
   const [name, setName] = useUser();
   const cartItems = useSelector((store) => store.cart.items);
   return (
-    <div className="header">
+    <div className="flex justify-between items-center flex-wrap shadow-lg p-2 sticky top-0 z-10 bg-white">
       <Title />
       <div className="nav-items">
         <ul>
