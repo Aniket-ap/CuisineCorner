@@ -2,14 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 10px;
-  border: 1px solid rgb(0, 0, 0);
-}
-
 .nav-items > ul {
   list-style-type: none;
   display: flex;
