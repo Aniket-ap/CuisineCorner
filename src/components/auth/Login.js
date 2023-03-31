@@ -14,7 +14,6 @@ const Login = () => {
       name,
       email,
     };
-
     localStorage.setItem("auth", JSON.stringify(data));
     setAuth({ ...auth, user: data });
     navigate("/");
@@ -56,6 +55,7 @@ const Login = () => {
                         placeholder="Your Name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
+                        required
                       ></input>
                     </div>
                   </div>
@@ -77,6 +77,7 @@ const Login = () => {
                         placeholder="Your Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        required
                       ></input>
                     </div>
                   </div>

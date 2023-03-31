@@ -2,11 +2,14 @@ import React from "react";
 import { IMG_CDN_URL } from "../config";
 import { useSelector, useDispatch } from "react-redux";
 import { clearCart, removeItemFromCart } from "../utils/redux/slices/cartSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../utils/context/useAuth";
 
 const Cart = () => {
   const dispatch = useDispatch();
   const items = useSelector((store) => store.cart.items);
+  const [auth, setAuth] = useAuth();
+  const navigate = useNavigate();
 
   const handleClearCart = () => {
     dispatch(clearCart());
@@ -28,7 +31,7 @@ const Cart = () => {
 
   const onClickCheckOut = () => {
     alert("Congratulations! Your order has been successfully placed");
-  }
+  };
 
   if (items.length === 0) {
     return (
@@ -129,45 +132,66 @@ const Cart = () => {
                 Price Details
               </h2>
 
-              <div>
-                <dl className=" space-y-1  px-6 py-4 sm:p-6">
-                  <div className="flex items-center justify-between">
-                    <dt className="text-sm">Item Total</dt>
-                    <dd className="text-sm font-medium">
-                      ₹ {totalPrice / 100}
-                    </dd>
+              {!auth.user ? (
+                <>
+                  <div className="p-3">
+                    <p className="font-semibold">
+                      To place your order now, log in to your account.
+                    </p>
+                    <button
+                      className="bg-green-400 w-full rounded-lg text-white p-3 mt-3 font-bold"
+                      onClick={() => navigate("/login")}
+                    >
+                      Login
+                    </button>
                   </div>
-                  <div className="flex items-center justify-between py-4">
-                    <dt className="text-sm">Govt Taxes & Other Charges</dt>
-                    <dd className="text-sm font-medium">
-                      ₹ {((totalPrice / 100) * 0.05).toFixed(2)}
-                    </dd>
+                </>
+              ) : (
+                <>
+                  <div>
+                    <dl className=" space-y-1  px-6 py-4 sm:p-6">
+                      <div className="flex items-center justify-between">
+                        <dt className="text-sm">Item Total</dt>
+                        <dd className="text-sm font-medium">
+                          ₹ {totalPrice / 100}
+                        </dd>
+                      </div>
+                      <div className="flex items-center justify-between py-4">
+                        <dt className="text-sm">Govt Taxes & Other Charges</dt>
+                        <dd className="text-sm font-medium">
+                          ₹ {((totalPrice / 100) * 0.05).toFixed(2)}
+                        </dd>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <dt className="flex text-sm">
+                          <span>Delivery Charges</span>
+                        </dt>
+                        <dd className="text-sm font-medium text-green-700 dark:text-green-400">
+                          Free
+                        </dd>
+                      </div>
+                      <div className="flex items-center justify-between py-4 border-y border-dashed ">
+                        <dt className="text-base font-medium">Total Amount</dt>
+                        <dd className="text-base font-medium">
+                          ₹{" "}
+                          {(
+                            Number(totalPrice / 100) +
+                            Number(((totalPrice / 100) * 0.05).toFixed(2))
+                          ).toFixed(2)}
+                        </dd>
+                      </div>
+                    </dl>
+                    <div className="px-6 pb-4">
+                      <button
+                        className="bg-green-400 w-full text-white p-3 font-bold"
+                        onClick={onClickCheckOut}
+                      >
+                        Checkout
+                      </button>
+                    </div>
                   </div>
-                  <div className="flex items-center justify-between">
-                    <dt className="flex text-sm">
-                      <span>Delivery Charges</span>
-                    </dt>
-                    <dd className="text-sm font-medium text-green-700 dark:text-green-400">
-                      Free
-                    </dd>
-                  </div>
-                  <div className="flex items-center justify-between py-4 border-y border-dashed ">
-                    <dt className="text-base font-medium">Total Amount</dt>
-                    <dd className="text-base font-medium">
-                      ₹{" "}
-                      {(
-                        Number(totalPrice / 100) +
-                        Number(((totalPrice / 100) * 0.05).toFixed(2))
-                      ).toFixed(2)}
-                    </dd>
-                  </div>
-                </dl>
-                <div className="px-6 pb-4">
-                  <button className="bg-green-400 w-full text-white p-3 font-bold" onClick={onClickCheckOut}>
-                    Checkout
-                  </button>
-                </div>
-              </div>
+                </>
+              )}
             </section>
           </form>
         </div>
