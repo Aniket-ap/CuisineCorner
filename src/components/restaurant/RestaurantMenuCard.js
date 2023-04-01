@@ -17,17 +17,17 @@ const RestaurantMenuCard = ({ item }) => {
 
   return (
     <>
-      <div class="grid grid-cols-6 justify-center p-2 gap-2 m-2 border-b">
-        <div class="col-span-5">
-          <span class="font-bold">{item?.card?.info?.name}</span>
+      <div className="grid grid-cols-6 justify-center p-2 gap-2 m-2 border-b">
+        <div className="col-span-5">
+          <span className="font-bold">{item?.card?.info?.name}</span>
           <br />
           <span>₹{Math.round(item?.card?.info?.price / 100)}</span>
           <br />
-          <span class="font-small text-sm text-slate-500 font-sans"></span>
+          <span className="font-small text-sm text-slate-500 font-sans"></span>
         </div>
-        <div class="relative justify-self-end ">
+        <div className="relative justify-self-end ">
           <img
-            class="w-[118] rounded-md h-[96] object-cover"
+            className="w-[118] rounded-md h-[96] object-cover"
             src={`${IMG_CDN_URL}${item?.card?.info?.imageId}`}
             alt="item"
           />
