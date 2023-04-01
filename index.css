@@ -2,18 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-.nav-items > ul {
-  list-style-type: none;
-  display: flex;
-}
-
-.nav-items > ul > li {
-  padding: 10px;
-  cursor: pointer;
-}
-
-.logo {
-  width: 80px;
+.gradient-text {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(to right, #FF6B6B, #FFA347);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Shimmer Card CSS Start */

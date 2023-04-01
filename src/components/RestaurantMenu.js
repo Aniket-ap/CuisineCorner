@@ -12,6 +12,10 @@ const RestaurantMenu = () => {
 
   return restaurantDetails.length === 0 ? (
     <div className="shimmer-container">
+      <div className="relative w-full h-80">
+        <div className="absolute inset-0 bg-white dark:bg-gray-300 animate-pulse" />
+      </div>
+
       {Array.from({ length: 5 }, (_, i) => (
         <Loader key={i} />
       ))}

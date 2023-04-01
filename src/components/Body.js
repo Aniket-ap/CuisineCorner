@@ -40,8 +40,8 @@ const Body = () => {
       ))}
     </div>
   ) : (
-    <div className="flex flex-col w-auto my-5">
-      <div className="bg-white rounded-lg shadow-lg p-4">
+    <div className="flex flex-col w-auto sm:mx-14 mt-5">
+      <div className=" rounded-lg shadow p-4">
         <input
           type="text"
           className="py-1 px-2 mx-2 rounded-md border border-gray-400 text-sm leading-5 focus:outline-none focus:border-orange-500"

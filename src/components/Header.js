@@ -26,26 +26,28 @@ const Header = () => {
     setAuth({ ...auth, user: null });
     localStorage.removeItem("auth");
     navigate("/login");
-  }
+  };
 
   return (
     <div className="flex justify-between items-center flex-wrap shadow-lg p-2 sticky top-0 z-10 bg-white">
-      <Title />
+      <Link to="/">
+        <h1 className="text-xl font-semibold text-white cursor-pointer px-10">
+          <span className="gradient-text">CUISINECORNER</span>
+        </h1>
+      </Link>
+
       <div className="nav-items">
-        <ul>
-          <li>
+        <ul className="flex flex-wrap">
+          <li className="p-3 cursor-pointer hover:text-orange-500 transition duration-300 ease-in-out">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="p-3 cursor-pointer hover:text-orange-500 transition duration-300 ease-in-out">
             <Link to="/about">About</Link>
           </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-          <li>
+          <li className="p-3 cursor-pointer hover:text-orange-500 transition duration-300 ease-in-out">
             <Link to="/instamart">Instamart</Link>
           </li>
-          <li>
+          <li className="p-3 cursor-pointer hover:text-orange-500 transition duration-300 ease-in-out">
             <Link to="/cart">
               <i class="fas fa-shopping-cart mx-1 text-orange-500"></i>
               {cartItems.length > 0 && (
@@ -55,7 +57,7 @@ const Header = () => {
               )}
             </Link>
           </li>
-          <li>
+          <li className="p-3 cursor-pointer hover:text-orange-500 transition duration-300 ease-in-out">
             {!auth.user ? (
               <>
                 <Link to="/login">
@@ -70,7 +72,7 @@ const Header = () => {
               </>
             )}
           </li>
-          <li>
+          <li className="p-3 cursor-pointer hover:text-orange-500 transition duration-300 ease-in-out">
             {auth.user ? (
               <>
                 <p onClick={onHandleLogout}>Logout</p>
