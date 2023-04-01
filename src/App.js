@@ -26,9 +26,11 @@ const AppLayout = () => {
       <Provider store={store}>
         <AuthProvider>
           <UserProvider>
-            <Header />
-            <Outlet />
-            <Footer />
+            <div className="flex flex-col min-h-[100vh]">
+              <Header />
+              <Outlet />
+              <Footer />
+            </div>
           </UserProvider>
         </AuthProvider>
       </Provider>

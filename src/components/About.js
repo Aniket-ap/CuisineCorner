@@ -1,12 +1,12 @@
-import React from 'react'
+import React from "react";
 
 const About = () => {
   return (
-    <div className='h-[80vh]'>
-        <h1>About Page</h1>
-        <h1>CUISINECORNER</h1>
-    </div>
-  )
-}
+    <>
+      <h1>About Page</h1>
+      <h1>CUISINECORNER</h1>
+    </>
+  );
+};
 
-export default About
+export default About;
