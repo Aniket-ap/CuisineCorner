@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import resList from "../config";
 import Loader from "./Loader";
 import RestaurantCard from "./RestaurantCard";
 import { filterData } from "../utils/helper";
@@ -18,7 +17,7 @@ const Body = () => {
 
   async function getRestaurant() {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.552082&lng=88.351584&page_type=DESKTOP_WEB_LISTING"
+      "https://kitchenkorner.onrender.com/api/restaurants"
     );
     const json = await data.json();
     setfilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);

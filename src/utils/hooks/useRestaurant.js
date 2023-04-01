@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { FETCH_RESTAURANT_DETAILS } from "../../config";
 
 const useRestaurant = (resId) => {
   const [restaurantDetails, setRestaurantDetails] = useState([]);
@@ -10,7 +9,9 @@ const useRestaurant = (resId) => {
   }, []);
 
   async function getRestaurantInfo() {
-    const data = await fetch(`${FETCH_RESTAURANT_DETAILS}${resId}`);
+    const data = await fetch(
+      `https://kitchenkorner.onrender.com/restaurant-details/${resId}`
+    );
     const json = await data.json();
     setRestaurantDetails(json?.data?.cards[0]?.card?.card?.info);
     // type.googleapis.com/swiggy.presentation.food.v2.ItemCategory
